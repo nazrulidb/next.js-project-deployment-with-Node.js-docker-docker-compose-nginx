@@ -43,7 +43,7 @@
          You can also run the following command to activate the changes to groups:
          newgrp docker
 
-5. Create a Dockerfile
+5. Create a multistage Dockerfile  
 
         # Stage 1: Install dependencies
       	FROM node:20-alpine AS deps
