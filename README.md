@@ -92,6 +92,7 @@
          docker build -t my-nextjs-app .
 
 7. Create docker compose file. docker-compose.yaml
+
          version: '3.8'
       
       		services:
@@ -124,7 +125,7 @@
       			  - ./certbot/conf:/etc/letsencrypt
       			  - ./certbot/www:/var/www/certbot
 
-8. First nginx conf before let's encrypt certbot run:
+9. First nginx conf before let's encrypt certbot run:
 
            server {
              listen 80;
@@ -137,7 +138,7 @@
             # Only one location / block here!
           }
 
-9. Run container:
+10. Run container:
 
          docker-compose up -d
             
@@ -145,11 +146,11 @@
             
          docker ps
 
-10. Run certbot command to generate Let's Encrypt SSL certificates
+11. Run certbot command to generate Let's Encrypt SSL certificates
 
         docker-compose run --rm certbot certonly --webroot --webroot-path /var/www/certbot -d next.lemle.online
 
-11. Nginx conf file after SSL generate: edit nginx.conf file which is mounted to nginx container
+12. Nginx conf file after SSL generate: edit nginx.conf file which is mounted to nginx container
 
           server {
       	 	listen 80;
@@ -184,7 +185,7 @@
 
       
 
-12. Restart nginx container:
+13. Restart nginx container:
 
         docker restart nginx_container_name
 
